@@ -1,9 +1,6 @@
-
-
 # PicoRV32-on-PYNQ-Z2
 
 This repo is to achieve the picorv32 core on the xilinx PYNQ-Z2 board
-
 
 <!-- PROJECT SHIELDS -->
 
@@ -25,8 +22,7 @@ This repo is to achieve the picorv32 core on the xilinx PYNQ-Z2 board
   <p align="center">
     A "perfect" readme document for you to start the project!
     <br />
-    <a href="https://github.com/JacoboJin/RISCV-on-PYNQ-Z2"><strong>    
-    Explore the documentation of this project. »</strong></a>
+    <a href="https://github.com/JacoboJin/RISCV-on-PYNQ-Z2"><strong>Explore the documentation of this project. »</strong></a>
     <br />
     <br />
     <a href="https://github.com/JacoboJin/RISCV-on-PYNQ-Z2">View Demo</a>
@@ -38,57 +34,56 @@ This repo is to achieve the picorv32 core on the xilinx PYNQ-Z2 board
 
 </p>
 
-
- 
-## 目录
+<!-- PROJECT BODY -->
+## Contents
 
 - [PicoRV32-on-PYNQ-Z2](#picorv32-on-pynq-z2)
-  - [目录](#目录)
-    - [上手指南](#上手指南)
-          - [开发前的配置要求](#开发前的配置要求)
-          - [**安装步骤**](#安装步骤)
-    - [文件目录说明](#文件目录说明)
-    - [开发的架构](#开发的架构)
-    - [部署](#部署)
-    - [使用到的框架](#使用到的框架)
-    - [贡献者](#贡献者)
-      - [如何参与开源项目](#如何参与开源项目)
-    - [版本控制](#版本控制)
-    - [作者](#作者)
-    - [版权说明](#版权说明)
-    - [鸣谢](#鸣谢)
+  - [Contents](#contents)
+    - [Guide](#guide)
+      - [Requirements](#requirements)
+      - [Steps](#steps)
+    - [File Directory](#file-directory)
+    - [Architecture](#architecture)
+    - [Deployment 可以写资源消耗](#deployment-可以写资源消耗)
+    - [Contributors](#contributors)
+      - [How to Get Involved in Open Source Projects](#how-to-get-involved-in-open-source-projects)
+    - [Version Control](#version-control)
+    - [Author](#author)
+    - [License](#license)
+    - [Acknowledgements](#acknowledgements)
 
-### 上手指南
+### Guide
 
-请将所有链接中的 **JacoboJin/RISCV-on-PYNQ-Z2** 改为 **your_github_name/your_repository**
+Please replace all ```JacoboJin/RISCV-on-PYNQ-Z2``` with ```your_github_name/your_repository```
 
+#### Requirements
 
-###### 开发前的配置要求
+- Vivado 2021.1 on Windows/Linux
+- Serial/SSH softwate [(WindTerm)](https://github.com/kingToolbox/WindTerm)
+- PYNQ-Z2 Board (For imagefile, We use PYNQ Image 3.0)
+- Git [(Windows & Linux Tutorial)](https://www.atlassian.com/git/tutorials/install-git)
 
-<ol>
-<li> Vivado 2021.1 on Windows/Linux </li>
-<li> Serial/SSH softwate (e.g. Xshell / WindTerm) </li>
-<li> PYNQ-Z2 Board </li>
-</ol>
+#### Steps
 
+1. **Clone the repo**
 
+    ```sh
+    git clone https://github.com/JacoboJin/RISCV-on-PYNQ-Z2.git
+    ```
 
-###### **安装步骤**
+2. **Toturials**
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+   You can get more details to the whole project in the Toturials Folder.
 
-```sh
-git clone https://github.com/shaojintian/Best_README_template.git
+   Meanwhile, you can also refer to the original project [RISC-V-On-PYNQ](https://github.com/drichmond/RISC-V-On-PYNQ) 
+   ><small>( Due to some errors in the referenced project in terms of details and code, we have made fixes in this project. We have successfully resolved the issues. Therefore, if there are still any problems, please feel free to create an issue for further discussion.)</small>
+
+### File Directory
+
 ```
-
-### 文件目录说明
-eg:
-
-```
-filetree 
+File Tree
 ├── ARCHITECTURE.md
-├── LICENSE.txt
+├── LICENSE
 ├── README.md
 ├── /account/
 ├── /bbs/
@@ -105,59 +100,47 @@ filetree
 
 ```
 
-
-
-
-
-### 开发的架构 
+### Architecture
 
 请阅读[ARCHITECTURE.md](https://github.com/shaojintian/Best_README_template/blob/master/ARCHITECTURE.md) 查阅为该项目的架构。
 
-### 部署
+### Deployment 可以写资源消耗
 
-暂无
-
-### 使用到的框架
-
-- [xxxxxxx](https://getbootstrap.com)
-- [xxxxxxx](https://jquery.com)
-- [xxxxxxx](https://laravel.com)
-
-### 贡献者
-
-请阅读**CONTRIBUTING.md** 查阅为该项目做出贡献的开发者。
-
-#### 如何参与开源项目
-
-贡献使开源社区成为一个学习、激励和创造的绝佳场所。你所作的任何贡献都是**非常感谢**的。
+Xilinx PYNQ-Z2
 
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+### Contributors
+
+Please read **CONTRIBUTING.md** to find the developers who have made contributions to this project.
+
+#### How to Get Involved in Open Source Projects
+
+*Contributions make the open-source community an excellent place for learning, inspiration, and creativity. Any contributions you make are **greatly appreciated**.*
+
+<ol>
+<li>  Fork the Project </li>
+<li>  Create your Feature Branch (`git checkout -b feature/AmazingFeature`) </li>
+<li>  Commit your Changes (`git commit -m 'Add some AmazingFeature'`) </li>
+<li>  Push to the Branch (`git push origin feature/AmazingFeature`) </li>
+<li>  Open a Pull Request </li>
+</ol>
 
 
+### Version Control
 
-### 版本控制
+This project uses Git for version control. You can check the available versions in the repository.
 
-该项目使用Git进行版本管理。您可以在repository参看当前可用版本。
+### Author
 
-### 作者
+Jin.ZJ @Shanghai University
 
-xxx@xxxx
+ *You can also check the list of contributors to see all the developers involved in this project.*
 
-知乎:xxxx  &ensp; qq:xxxxxx    
+### License
 
- *您也可以在贡献者名单中参看所有参与该项目的开发者。*
+This project is licensed under the **MIT License**. For details, please refer to the [LICENSE](https://github.com/JacoboJin/RISCV-on-PYNQ-Z2/blob/main/LICENSE) file.
 
-### 版权说明
-
-该项目签署了MIT 授权许可，详情请参阅 [LICENSE.txt](https://github.com/shaojintian/Best_README_template/blob/master/LICENSE.txt)
-
-### 鸣谢
-
+### Acknowledgements
 
 - [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 - [Img Shields](https://shields.io)
@@ -166,6 +149,7 @@ xxx@xxxx
 - [Animate.css](https://daneden.github.io/animate.css)
 - [xxxxxxxxxxxxxx](https://connoratherton.com/loaders)
 - [riscv-gnu-toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain)
+
 
 <!-- links -->
 [your-project-path]: JacoboJin/RISCV-on-PYNQ-Z2
@@ -178,4 +162,5 @@ xxx@xxxx
 [issues-shield]: https://img.shields.io/github/issues/JacoboJin/RISCV-on-PYNQ-Z2.svg?style=flat-square
 [issues-url]: https://img.shields.io/github/issues/JacoboJin/RISCV-on-PYNQ-Z2.svg
 [license-shield]: https://img.shields.io/github/license/JacoboJin/RISCV-on-PYNQ-Z2.svg?style=flat-square
-[license-url]: https://github.com/JacoboJin/RISCV-on-PYNQ-Z2/blob/master/LICENSE.txt
+[license-url]: https://github.com/JacoboJin/RISCV-on-PYNQ-Z2/blob/main/LICENSE
+  
