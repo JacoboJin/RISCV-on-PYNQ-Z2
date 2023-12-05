@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <spirit:vendor>xilinx.com</spirit:vendor>
+  <spirit:vendor>Ethan</spirit:vendor>
   <spirit:library>user</spirit:library>
   <spirit:name>picorv32_axi</spirit:name>
   <spirit:version>1.0</spirit:version>
@@ -76,72 +76,6 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>resetn</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>RST</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>resetn</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>POLARITY</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESETN.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>clk</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>clk</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.ASSOCIATED_RESET">resetn</spirit:value>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>irq</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="interrupt" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="interrupt_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>INTERRUPT</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>irq</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>SENSITIVITY</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.IRQ.SENSITIVITY" spirit:choiceRef="choice_list_99a1d2b9">LEVEL_HIGH</spirit:value>
-        </spirit:parameter>
-      </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>mem_axi</spirit:name>
@@ -288,14 +222,74 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>resetn</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>resetn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
       <spirit:parameters>
         <spirit:parameter>
-          <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.MEM_AXI.NUM_READ_OUTSTANDING"/>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESETN.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>clk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.ASSOCIATED_RESET">resetn</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
-          <spirit:name>NUM_WRITE_OUTSTANDING</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.MEM_AXI.NUM_WRITE_OUTSTANDING"/>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.ASSOCIATED_BUSIF">mem_axi</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>irq</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="interrupt" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="interrupt_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>INTERRUPT</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>irq</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>SENSITIVITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.IRQ.SENSITIVITY" spirit:choiceRef="choice_list_99a1d2b9">LEVEL_HIGH</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -889,7 +883,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>ENABLE_PCPI</spirit:name>
         <spirit:displayName>Enable Pcpi</spirit:displayName>
-        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.ENABLE_PCPI">false</spirit:value>
+        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.ENABLE_PCPI">true</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>ENABLE_MUL</spirit:name>
@@ -1000,7 +994,7 @@
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
-  <spirit:description>PicoRV32 Processor with AXI Interface(Tutorial Version)</spirit:description>
+  <spirit:description>PicoRV32 Processor with AXI Interface</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>ENABLE_COUNTERS</spirit:name>
@@ -1060,7 +1054,7 @@
     <spirit:parameter>
       <spirit:name>ENABLE_PCPI</spirit:name>
       <spirit:displayName>Enable Pcpi</spirit:displayName>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.ENABLE_PCPI">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.ENABLE_PCPI">true</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>ENABLE_MUL</spirit:name>
@@ -1165,64 +1159,63 @@
       </xilinx:taxonomies>
       <xilinx:displayName>PicoRV32 Processor with AXI Interface</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2023-12-04T10:08:28Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1</xilinx:coreRevision>
+      <xilinx:upgrades>
+        <xilinx:canUpgradeFrom>xilinx.com:user:picorv32_axi:1.0</xilinx:canUpgradeFrom>
+      </xilinx:upgrades>
+      <xilinx:coreCreationDateTime>2023-12-05T15:52:01Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@d7d74a7_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7ae3f79f_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6e237c94_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7424a7f0_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7d4b3a54_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3d27a0bb_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@65167710_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5682178_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1f217629_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@14ecf1d8_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6cbe47c7_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@28496990_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@13f58161_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3ea6bcba_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5e3937cd_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3a68e802_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@741e58d3_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@16d9df1e_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1f0ddd7c_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@52bc7dde_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6a60c5b4_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@dcce42d_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@55d89df6_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4c570257_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7f1332d5_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@197ad795_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2425d102_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7539dea9_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4b0711b7_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5a85e61f_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6b9272cf_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7b59a6fc_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1b43290c_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@462e060_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4039660e_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5cfc0119_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2b6aa05f_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3d3e9baf_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@54360af0_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4c3c45e7_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@673ef4_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@29d2445e_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@85a4b27_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7ddc394a_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@52c867c2_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1cb3f4bb_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a25bac8_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e7acca9_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5956051d_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2abbf0f4_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d4a6ba8_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ab9a187_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@557869f3_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@373901ca_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38a6600f_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@20d732c1_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b124dff_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10264351_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1fd781de_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e2d9c1c_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3517bd7e_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8f2ffa_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2503e368_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ab31b5c_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4558b2f5_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10a08198_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@317480_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46b8d793_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ccf6f21_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ef45e67_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@20612d4b_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1324e936_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@41ece56f_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a4adf82_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72d0bf89_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6189de9c_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35e4012c_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@19ad080e_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e266301_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f9c8efd_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@13fd2e98_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35fab18b_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@40caa47_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3aaa1fb4_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e8c60b_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@113ffc70_ARCHIVE_LOCATION">d:/Code/RISCVonPYNQZ2/ip/picorv32_tut</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="ed04c665"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="d822cc49"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="ec842a8a"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="8dfc2320"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="512d6819"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="86e5ccdf"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="2e05ef93"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="6db24bba"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="a7a096d7"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>
