@@ -43,10 +43,8 @@ This repo is to achieve the picorv32 core on the xilinx PYNQ-Z2 board
       - [Requirements](#requirements)
       - [Steps](#steps)
     - [File Directory](#file-directory)
-    - [Architecture](#architecture)
-    - [Deployment 可以写资源消耗](#deployment-可以写资源消耗)
+    - [Project Summary](#project-summary)
     - [Contributors](#contributors)
-      - [How to Get Involved in Open Source Projects](#how-to-get-involved-in-open-source-projects)
     - [Version Control](#version-control)
     - [Author](#author)
     - [License](#license)
@@ -71,60 +69,119 @@ Please replace all ```JacoboJin/RISCV-on-PYNQ-Z2``` with ```your_github_name/you
     git clone https://github.com/JacoboJin/RISCV-on-PYNQ-Z2.git
     ```
 
-2. **Toturials**
+2. **Create A BitStream**
 
-   You can get more details to the whole project in the Toturials Folder.
+    - **Firstly**, you need to create the vivado project for packaging the pico32 core as picorv32_tut ip. (You can follow those operations outlined in the `notebooks/tutorial/2-Creating-A-Bitstream.ipynb` to complete this task).
+    - **Secondly**, we have provided an efficient method to complete the overall design by `.tcl` scripts.
+      - ```run ./scripts/pico_processor.tcl```
+      - ```run ./scirpts/pico_bit.tcl```
+      After running the above commands, you must create a wrapper for the design, add constraint files.
+    - **Finally**, generate the BitStream file.
 
-   Meanwhile, you can also refer to the original project [RISC-V-On-PYNQ](https://github.com/drichmond/RISC-V-On-PYNQ) 
-   ><small>( Due to some errors in the referenced project in terms of details and code, we have made fixes in this project. We have successfully resolved the issues. Therefore, if there are still any problems, please feel free to create an issue for further discussion.)</small>
+    You can get more details to the whole project in the `notebooks/tutorial` Folder. Meanwhile, you can also refer to the original project [RISC-V-On-PYNQ](https://github.com/drichmond/RISC-V-On-PYNQ) 
+    ><small>( Due to some errors in the referenced project in terms of details and code, we have made fixes in this project. We have successfully resolved the issues. Therefore, if there are still any problems, please feel free to create an issue for further discussion.)</small>
+3. **Compiling the RISC-V GCC Toolchain on your PYNQ Board**
+   - connect to the pynq-z2 board by ssh
+   - run command
+
+    ```bash
+      cd /home/xilinx/riscv-gnu-toolchain
+      ./configure --prefix=/opt/riscv32imc --with-arch=rv32imc
+      make
+    ```
+
+   - Configure the generated `/opt/riscv32imc/bin` into an environment variable `~/.bashrc` by executing the following code in Jupyter Notebooks:
+
+    ```Python
+      import os
+      path = os.environ['PATH'].split()
+      riscv_path = '/opt/riscv32imc/bin'
+      if(riscv_path not in path):
+          print('Updating /etc/environment file... ',end="")
+          !sed -i 's/PATH=\"\(.*\)\"/PATH=\"\/opt\/riscv32imc\/bin:\1\"/' /etc/environment
+          print('done')
+      else:
+          print("/etc/environment file already updated")
+    ```
+
+    - reboot PYNQ-Z2
+
+    ```bash
+      shutdown -r now
+    ```
+
+    - Confirm that the RISC-V toolchain has been successfully installed
+
+    ```bash
+      riscv32-unknown-elf-gcc --version
+    ```
+
+4. **Packaging an Overlay**
 
 ### File Directory
 
-```
+```text
 File Tree
 ├── ARCHITECTURE.md
 ├── LICENSE
 ├── README.md
-├── /account/
-├── /bbs/
-├── /docs/
-│  ├── /rules/
-│  │  ├── backend.txt
-│  │  └── frontend.txt
-├── manage.py
-├── /oa/
-├── /static/
+├── /constrs/
+│  ├── PYNQ_Z2.xdc
+├── /gold_ip/
+│  ├── /pcpi_v1_0/
+│  ├── /picobram_if/
+│  ├── /picobridge/
+│  ├── /picorv32_axi/
+│  ├── /picorv32_bram/
+├── /ip/
+│  ├── /pcpi_v1_0/
+│  ├── /picobram_if/
+│  ├── /picobridge/
+│  ├── /picorv32_axi/
+│  ├── /picorv32_bram/
+│  ├── /picorv32_tut/
+├── /notebooks/
+│  ├── /examples/
+│  ├── /tutorial/
+|  │  ├── /pictures/
+|  │  ├── 0-How-To-RISC-V.ipynb
+|  │  ├── 1-Downloading-And-Configuring.ipynb
+|  │  ├── 2-Creating-A-Bitstream.ipynb
+|  │  ├── 3-Compiling-RISC-V-GCC-Toolchain.ipynb
+|  │  ├── 4-Packaging-An-Overlay.ipynb
+├── /picorv32/
+├── /ReadMe-deps/
+├── /scripts/
+│  ├── build.tcl
+│  ├── pico_bit.tcl
+│  ├── pico_processor.tcl
 ├── /templates/
 ├── useless.md
+├── LICENSE
+├── README.md
 └── /util/
-
 ```
 
-### Architecture
+### Project Summary
 
-请阅读[ARCHITECTURE.md](https://github.com/shaojintian/Best_README_template/blob/master/ARCHITECTURE.md) 查阅为该项目的架构。
+<img src="./ReadMe-deps/utilization.png" alt="Picorv32 Utilization" style="width: 520px;"/>
 
-### Deployment 可以写资源消耗
-
-Xilinx PYNQ-Z2
-
+<img src="./ReadMe-deps/power.png" alt="Picorv32 Power" style="width: 520px;"/>
 
 ### Contributors
 
 Please read **CONTRIBUTING.md** to find the developers who have made contributions to this project.
 
-#### How to Get Involved in Open Source Projects
-
 *Contributions make the open-source community an excellent place for learning, inspiration, and creativity. Any contributions you make are **greatly appreciated**.*
 
-<ol>
-<li>  Fork the Project </li>
-<li>  Create your Feature Branch (`git checkout -b feature/AmazingFeature`) </li>
-<li>  Commit your Changes (`git commit -m 'Add some AmazingFeature'`) </li>
-<li>  Push to the Branch (`git push origin feature/AmazingFeature`) </li>
-<li>  Open a Pull Request </li>
-</ol>
-
+```text
+  How to Get Involved in Open Source Projects
+  1. Fork the Project
+  2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+  3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+  4. Push to the Branch (`git push origin feature/AmazingFeature`)
+  5. Open a Pull Request
+```
 
 ### Version Control
 
@@ -149,7 +206,6 @@ This project is licensed under the **MIT License**. For details, please refer to
 - [Animate.css](https://daneden.github.io/animate.css)
 - [xxxxxxxxxxxxxx](https://connoratherton.com/loaders)
 - [riscv-gnu-toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain)
-
 
 <!-- links -->
 [your-project-path]: JacoboJin/RISCV-on-PYNQ-Z2
