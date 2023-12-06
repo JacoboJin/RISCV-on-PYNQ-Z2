@@ -204,8 +204,8 @@ This project is licensed under the **MIT License**. For details, please refer to
 - [Choose an Open Source License](https://choosealicense.com)
 - [GitHub Pages](https://pages.github.com)
 - [Animate.css](https://daneden.github.io/animate.css)
-- [xxxxxxxxxxxxxx](https://connoratherton.com/loaders)
 - [riscv-gnu-toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain)
+- [RISC-V-On-PYNQ](https://github.com/drichmond/RISC-V-On-PYNQ)
 
 <!-- links -->
 [your-project-path]: JacoboJin/RISCV-on-PYNQ-Z2
